@@ -12,6 +12,13 @@ export default defineConfig({
         })
       ]
     }),
-    vue(),
-  ]
+    vue()
+  ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "./src/assets/main.scss";'
+      }
+    }
+  }
 })

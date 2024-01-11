@@ -1,8 +1,6 @@
 <script setup lang="ts">
 // import { onMounted, ref } from "vue";
-import { Graph } from '@antv/x6'
-import { Button } from 'ant-design-vue'
-import Home from './view/Home.vue'
+
 // 定义画布
 //
 </script>
@@ -10,9 +8,7 @@ import Home from './view/Home.vue'
 <template>
   <!-- <Button @click="zoomIn">zoom++</Button>
   <div class="container" ref="container"></div> -->
-  <div id="App">
-    <Home />
-  </div>
+  <div id="App">Hello Vue3</div>
 </template>
 
 <style scoped>
