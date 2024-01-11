@@ -12,10 +12,7 @@
     "commit": "git add . && cz-customizable"
   },
   "dependencies": {
-    "@antv/hierarchy": "^0.6.11",
-    "@antv/x6": "^2.16.1",
     "ant-design-vue": "^4.0.8",
-    "insert-css": "^2.0.0",
     "vue": "^3.3.11"
   },
   "devDependencies": {
