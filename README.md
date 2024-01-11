@@ -1,12 +1,13 @@
-# Vue 3 + TypeScript + Vite 框架完善
+# Vue 3 + TypeScript + Vite脚手架 ----->>>>个人工作流 💎💎💎
 
-首次搭建自己的工作流，实现代码风格 提交规范的配置
+基于vite-vue3脚手架，首次搭建自己的工作流，实现代码风格 提交规范的配置 🎉🎉🎉
 
-## Eslint 配置踩坑 Vue3+Typescript+Vite
+` npm install `
+` npm run dev `
 
-1.  `npx eslint --init` 
+## Eslint 配置踩坑 Vue3+Typescript+Vite 🔥🔥🔥
 
-
+   1.  `npx eslint --init` 
     2.不识别.vue文件
     parserOptions中添加 扩展名 .vue(数组)
     `"extraFileExtensions":['.vue']`
@@ -19,23 +20,14 @@
 
     4.添加eslintignore，忽略不被eslint所解析的文件
 
-## 老生常谈的解决 eslint和prettier的冲突问题
+## 老生常谈的解决 eslint和prettier的冲突问题 
 
-## git-commit-emoji踩坑， 需要在commitlint配置文件加入emoji代码
-
-
+## 代码提交  🚀🚀🚀
+自动规范化和简洁化代码提交
+` npm run commit `
 
 ## Recommended IDE Setup
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
 ## Type Support For `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
