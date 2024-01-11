@@ -1,6 +1,6 @@
-export interface mindmapData{
-    id:string
-    type:string
-    label:string
-    children?:mindmapData[]
+export interface mindmapData {
+  id: string
+  type: string
+  label: string
+  children?: mindmapData[]
 }

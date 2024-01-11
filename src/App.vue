@@ -1,22 +1,22 @@
 <script setup lang="ts">
 // import { onMounted, ref } from "vue";
-import { Graph } from "@antv/x6";
-import { Button } from 'ant-design-vue';
-import  Home  from "./view/Home.vue"
-  //定义画布
-// 
+import { Graph } from '@antv/x6'
+import { Button } from 'ant-design-vue'
+import Home from './view/Home.vue'
+// 定义画布
+//
 </script>
 
 <template>
   <!-- <Button @click="zoomIn">zoom++</Button>
   <div class="container" ref="container"></div> -->
   <div id="App">
-    <Home></Home>
+    <Home />
   </div>
 </template>
 
 <style scoped>
-#App{
+#App {
   width: 100%;
   /* min-height: 1000px;s */
   height: auto;

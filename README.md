@@ -1,6 +1,22 @@
-# Vue 3 + TypeScript + Vite
+# Vue 3 + TypeScript + Vite 框架完善
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Eslint 配置踩坑 Vue3+Typescript+Vite
+
+1.  `npx eslint --init`
+
+    2.不识别.vue文件
+    parserOptions中添加 扩展名 .vue(数组)
+    `"extraFileExtensions":['.vue']`
+    给eslint添加vue-eslint-parser
+    _这里ts的parser和vue的pareser要分开_
+    parserOptions中parser中添加 ts解析
+    在外部parser中添加vue-eslint-parser
+
+    3.给tsconfig.json中添加不能识别的后缀名
+
+    4.添加eslintignore，忽略不被eslint所解析的文件
+
+## 老生常谈的解决 eslint和prettier的冲突问题
 
 ## Recommended IDE Setup
 

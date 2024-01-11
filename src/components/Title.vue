@@ -1,13 +1,7 @@
-<template lang="ts" setup>
-    <div>
-        
-    </div>
+<template>
+  <div />
 </template>
-<script>
-export default {
-    
-}
+<script lang="ts" setup>
+export default {}
 </script>
-<style lang="">
-    
-</style>
+<style lang=""></style>

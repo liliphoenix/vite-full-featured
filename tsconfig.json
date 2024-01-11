@@ -17,8 +17,16 @@
     "strict": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks":true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "main.d.ts"],
+  "include": [
+    "./*.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/main.d.ts",
+    "src/components.d.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
