@@ -11,6 +11,7 @@ module.exports = {
         'plugin:prettier/recommended' 
     ],
     "overrides": [
+        
         {
             "env": {
                 "node": true

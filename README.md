@@ -1,8 +1,11 @@
 # Vue 3 + TypeScript + Vite 框架完善
 
+首次搭建自己的工作流，实现代码风格 提交规范的配置
+
 ## Eslint 配置踩坑 Vue3+Typescript+Vite
 
-1.  `npx eslint --init`
+1.  `npx eslint --init` 
+
 
     2.不识别.vue文件
     parserOptions中添加 扩展名 .vue(数组)
@@ -17,6 +20,10 @@
     4.添加eslintignore，忽略不被eslint所解析的文件
 
 ## 老生常谈的解决 eslint和prettier的冲突问题
+
+## git-commit-emoji踩坑， 需要在commitlint配置文件加入emoji代码
+
+
 
 ## Recommended IDE Setup
 
