@@ -2,13 +2,12 @@
 
 基于vite-vue3脚手架，首次搭建自己的工作流，实现代码风格 提交规范的配置 🎉🎉🎉
 
-` npm install `
-` npm run dev `
+`npm install`
+`npm run dev`
 
 ## Eslint 配置踩坑 Vue3+Typescript+Vite 🔥🔥🔥
 
-   1.  `npx eslint --init` 
-    2.不识别.vue文件
+1.  `npx eslint --init` 2.不识别.vue文件
     parserOptions中添加 扩展名 .vue(数组)
     `"extraFileExtensions":['.vue']`
     给eslint添加vue-eslint-parser
@@ -20,11 +19,12 @@
 
     4.添加eslintignore，忽略不被eslint所解析的文件
 
-## 老生常谈的解决 eslint和prettier的冲突问题 
+## 老生常谈的解决 eslint和prettier的冲突问题
 
-## 代码提交  🚀🚀🚀
+## 代码提交 🚀🚀🚀
+
 自动规范化和简洁化代码提交
-` npm run commit `
+`npm run commit`
 
 ## Recommended IDE Setup
 

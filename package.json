@@ -8,17 +8,18 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
+    "lint:style": "npx stylelint '**/*.scss'",
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
     "commit": "git add . && cz-customizable"
   },
   "dependencies": {
     "ant-design-vue": "^4.0.8",
+    "sass": "^1.69.7",
     "vue": "^3.3.11"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
-    "@commitlint/core": "^18.4.4",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
     "@vitejs/plugin-vue": "^4.5.2",
@@ -37,9 +38,13 @@
     "eslint-plugin-vue": "^9.19.2",
     "husky": "^8.0.3",
     "prettier": "^3.1.1",
+    "stylelint": "^16.1.0",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-standard-scss": "^13.0.0",
     "typescript": "^5.3.3",
     "unplugin-vue-components": "^0.26.0",
     "vite": "^5.0.8",
+    "vite-aliases": "^0.11.3",
     "vue-eslint-parser": "^9.4.0",
     "vue-tsc": "^1.8.25"
   },
