@@ -23,6 +23,9 @@
 
 ### cz+commitlint+git-emoji 代码提交 ✅
 
+自动规范化和简洁化代码提交
+`npm run commit`
+
 ### 提交前 husky 检查代码规范+format代码 ✅
 
 ### 支持scss代码 支持stylelint + prettier 修改scss ✅
@@ -42,6 +45,3 @@
 ### utils 常见方法的封装 ✏️✏️✏️
 
 ### i18n 多语言配置 ✏️✏️✏️
-
-自动规范化和简洁化代码提交
-`npm run commit`
