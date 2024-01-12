@@ -31,17 +31,17 @@
 
 ### prod dev test 环境变量配置支持 ✅
 
-### axios二次封装 + mock ✏️。。
+### axios二次封装 + mock ✏️✏️✏️
 
-### common css封装 + 常用css方法封装 ✏️。。
+### common css封装 + 常用css方法封装 ✏️✏️✏️
 
-### pinia 完善配置 ✏️。。
+### pinia 完善配置 ✏️✏️✏️
 
-### vue-router 完善配置 ✏️。。
+### vue-router 完善配置 ✏️✏️✏️
 
-### utils 常见方法的封装 ✏️。。
+### utils 常见方法的封装 ✏️✏️✏️
 
-### i18n 多语言配置 ✏️。。
+### i18n 多语言配置 ✏️✏️✏️
 
 自动规范化和简洁化代码提交
 `npm run commit`
