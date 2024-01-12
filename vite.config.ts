@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import path from 'path'
+import { viteMockServe } from 'vite-plugin-mock'
 export default defineConfig({
   plugins: [
     // ...
@@ -13,7 +14,12 @@ export default defineConfig({
         })
       ]
     }),
-    vue()
+    vue(),
+    viteMockServe({
+      mockPath: path.resolve(__dirname, 'src/mock'),
+      watchFiles: true,
+      enable: true
+    })
   ],
   css: {
     preprocessorOptions: {
