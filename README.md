@@ -19,15 +19,29 @@
 
     4.添加eslintignore，忽略不被eslint所解析的文件
 
-## 老生常谈的解决 eslint和prettier的冲突问题
+### 老生常谈的解决 eslint和prettier的冲突问题 ✅
 
-## 代码提交 🚀🚀🚀
+### cz+commitlint+git-emoji 代码提交 ✅
+
+### 提交前 husky 检查代码规范+format代码 ✅
+
+### 支持scss代码 支持stylelint + prettier 修改scss ✅
+
+### vite配置完善 alias proxy css... ✅
+
+### prod dev test 环境变量配置支持 ✅
+
+### axios二次封装 + mock ✏️。。
+
+### common css封装 + 常用css方法封装 ✏️。。
+
+### pinia 完善配置 ✏️。。
+
+### vue-router 完善配置 ✏️。。
+
+### utils 常见方法的封装 ✏️。。
+
+### i18n 多语言配置 ✏️。。
 
 自动规范化和简洁化代码提交
 `npm run commit`
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support For `.vue` Imports in TS
