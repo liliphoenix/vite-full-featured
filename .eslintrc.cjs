@@ -29,5 +29,12 @@ module.exports = {
     extraFileExtensions: ['.vue']
   },
   plugins: ['vue', '@typescript-eslint'],
-  rules: {}
+  rules: {
+    'vue/multi-word-component-names': [
+      'error',
+      {
+        ignores: ['Home']
+      }
+    ]
+  }
 }

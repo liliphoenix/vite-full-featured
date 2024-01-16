@@ -18,7 +18,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "baseUrl":"./",
+    "paths":{ 
+      "@/*":["src/*"],
+      "@types":["src/types/*"]
+    },
   },
   "include": [
     "./*.ts",
@@ -27,5 +32,6 @@
     "src/**/*.vue",
     "src/components.d.ts"
   ],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
+
 }

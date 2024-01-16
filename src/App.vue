@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // import { onMounted, ref } from "vue";
-
+import { Button } from 'ant-design-vue'
 // 定义画布
 //
 </script>
@@ -8,7 +8,11 @@
 <template>
   <!-- <Button @click="zoomIn">zoom++</Button>
   <div class="container" ref="container"></div> -->
-  <div id="App">Hello Vue3</div>
+  <div id="App">
+    <div class="request">
+      <Button type="primary">getList</Button>
+    </div>
+  </div>
 </template>
 
 <style scoped>
