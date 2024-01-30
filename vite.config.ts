@@ -14,8 +14,8 @@ export default defineConfig({
   ],
   css: {
     preprocessorOptions: {
-      sass: {
-        additionalData: `@import '~@/assets/main.scss';`
+      scss: {
+        additionalData: `@import "./src/assets/main.scss";`
       }
     }
   },
@@ -25,7 +25,7 @@ export default defineConfig({
       // prettier-ignore
       'com': path.resolve(__dirname, 'src/components'),
       // prettier-ignore
-      '~': path.resolve(__dirname, 'src/assets'),
+      'assets': path.resolve(__dirname, 'src/assets'),
       // prettier-ignore
       'utils': path.resolve(__dirname, 'src/utils'),
       // prettier-ignore

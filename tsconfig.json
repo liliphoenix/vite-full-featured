@@ -25,7 +25,6 @@
       "types/*": ["src/types/*"],
       "com/*": ["src/components/*"],
       "utils/*": ["src/utils/*"],
-      "~/*": ["src/assets/*"],
       "router/*": ["src/router/*"],
       "view/*": ["src/view/*"]
     }

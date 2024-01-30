@@ -10,9 +10,8 @@ const prefix = getVueGlobalValue()?.$prefix
 </script>
 
 <style lang="scss" scoped>
-@import '~@/assets/main.scss';
 .#{$prefix}-message-box {
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translateX(-50%);
 }
