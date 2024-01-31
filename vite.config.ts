@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import { viteMockServe } from 'vite-plugin-mock'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   plugins: [
     // ...
@@ -10,7 +11,8 @@ export default defineConfig({
       mockPath: path.resolve(__dirname, 'src/mock'),
       watchFiles: true,
       enable: true
-    })
+    }),
+    vueJsx()
   ],
   css: {
     preprocessorOptions: {

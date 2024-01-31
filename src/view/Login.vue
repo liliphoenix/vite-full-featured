@@ -7,8 +7,10 @@
 
 <script lang="ts" setup>
 import { onMounted } from 'vue'
-import MessageBox from 'com/MessageBox.vue'
-onMounted(() => {})
+import { useMessageFun } from 'com/Message/index'
+onMounted(() => {
+  useMessageFun()
+})
 </script>
 
 <style lang="sass" scoped></style>
