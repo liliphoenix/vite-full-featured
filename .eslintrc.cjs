@@ -36,6 +36,9 @@ module.exports = {
         ignores: ['Home', 'Login', 'index']
       }
     ],
-    '@typescript-eslint/no-unsafe-argument': 'off'
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/promise-function-async': 'off',
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/strict-boolean-expressions': 'off'
   }
 }
