@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-// import { ref } from 'vue'
+import { ref } from 'vue'
 import className from 'classnames'
 import { getVueGlobalValue } from 'utils/index'
 // 🌸 是否显示
@@ -17,11 +17,15 @@ const props = defineProps({
     default: 'info'
   }
 })
-// const isShowMsg = ref(false)
-// const msgContent = ref(props.message)
+const isShowMsg = ref(false)
+const msgContent = ref(props.message)
 // 🌸 定义prefix防止class变量污染
 const prefix = `${getVueGlobalValue()?.$prefix}-message-box`
 const msgClass = className(prefix, props.message)
+defineExpose({
+  isShowMsg,
+  msgContent
+})
 </script>
 
 <style lang="scss" scoped>

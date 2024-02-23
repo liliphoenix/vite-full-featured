@@ -7,6 +7,7 @@
 
 <script lang="ts" setup>
 import { onMounted } from 'vue'
+import MessageBox from '@/components/Message/MessageBox.vue'
 import { useMessageFun } from 'com/Message/index'
 onMounted(() => {
   useMessageFun()
