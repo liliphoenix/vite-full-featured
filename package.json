@@ -13,6 +13,7 @@
     "commit": "git add . && cz-customizable"
   },
   "dependencies": {
+    "ant-design-vue": "^4.1.2",
     "axios": "^1.6.5",
     "classnames": "^2.5.1",
     "mockjs": "^1.1.0",
@@ -48,6 +49,7 @@
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-standard-scss": "^13.0.0",
     "typescript": "^5.3.3",
+    "unplugin-vue-components": "^0.26.0",
     "vite": "^5.0.8",
     "vite-aliases": "^0.11.3",
     "vite-plugin-mock": "^3.0.1",

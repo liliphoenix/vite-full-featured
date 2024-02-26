@@ -3,6 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import { viteMockServe } from 'vite-plugin-mock'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import Components from 'unplugin-vue-components/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig({
   plugins: [
     // ...
@@ -12,7 +14,14 @@ export default defineConfig({
       watchFiles: true,
       enable: true
     }),
-    vueJsx()
+    vueJsx(),
+    Components({
+      resolvers: [
+        AntDesignVueResolver({
+          importStyle: false // css in js
+        })
+      ]
+    })
   ],
   css: {
     preprocessorOptions: {
@@ -35,7 +44,9 @@ export default defineConfig({
       // prettier-ignore
       'router': path.resolve(__dirname, 'src/router'),
       // prettier-ignore
-      'view': path.resolve(__dirname, 'src/view')
+      'view': path.resolve(__dirname, 'src/view'),
+      // prettier-ignore
+      'api':path.resolve(__dirname, 'src/api')
     },
     extensions: ['.js', '.cjs', '.json', '.ts', '.vue']
   },
@@ -46,7 +57,7 @@ export default defineConfig({
     host: true, // 在局域网内进行热更新,
     proxy: {
       '/api': {
-        target: process.env.VUE_CLIENT_HOST,
+        target: process.env.VUE_CLIENT_TEST_HOST,
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }

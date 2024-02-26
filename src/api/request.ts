@@ -8,10 +8,6 @@ import type {
 } from 'axios'
 import type * as AT from 'types/axios'
 
-export const request: AxiosInstance = axios.create({
-  baseURL: 'xxx',
-  timeout: 3000
-})
 export class Request {
   instance: AxiosInstance
   interceptorsObj: AT.interceptorsObj
@@ -35,6 +31,8 @@ export class Request {
     // ! 新版本中请求拦截器的类型已经是 InternalAxiosRequestConfig
     this.instance.interceptors.request.use(
       (config: InternalAxiosRequestConfig) => {
+        console.log(config)
+
         // 🌸 0.检查用户的网络连接状态
         if (!navigator.onLine) {
           throw new Error('network did not connected')
@@ -58,15 +56,58 @@ export class Request {
       (config: AxiosResponse) => {
         return config
       },
+      // 🌸 处理拦截器
       (error: AxiosError) => {
         console.log(error)
-        throw new Error(error.message)
+        let message
+        switch (error.response?.status) {
+          case 400:
+            message = '请求错误(400)'
+            break
+          case 401:
+            message = '未授权，请重新登录(401)'
+            // 这里可以做清空storage并跳转到登录页的操作
+            break
+          case 403:
+            message = '拒绝访问(403)'
+            break
+          case 404:
+            message = '请求出错(404)'
+            break
+          case 408:
+            message = '请求超时(408)'
+            break
+          case 500:
+            message = '服务器错误(500)'
+            break
+          case 501:
+            message = '服务未实现(501)'
+            break
+          case 502:
+            message = '网络错误(502)'
+            break
+          case 503:
+            message = '服务不可用(503)'
+            break
+          case 504:
+            message = '网络超时(504)'
+            break
+          case 505:
+            message = 'HTTP版本不受支持(505)'
+            break
+          default:
+            message = `连接出错(${error.response?.status})!`
+        }
+        console.log(message)
+
+        throw new Error(message)
       }
     )
     // 🌸 自定义添加拦截器
   }
 
   // 🌸 request方法
+  // eslint-disable
   request(config: AxiosRequestConfig): Promise<AT.resType<any>> {
     return this.instance.request(config)
   }

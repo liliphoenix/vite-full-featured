@@ -16,6 +16,7 @@ export type setHeadersType = (
 export interface resType<T> {
   result_code: number
   data: T
+  message: string
 }
 
 // 🌸 可扩展config
@@ -32,3 +33,6 @@ export interface interceptorsObj {
   responseInterceptorsRej?: (error: AxiosError) => void
   responseInterceptors?: (config: AxiosResponse) => AxiosResponse
 }
+
+// 🌸 返回data的数据类型
+export type dataType = Promise<resType<any>>
