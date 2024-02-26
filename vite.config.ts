@@ -1,6 +1,7 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import path from 'path'
+// TODO:踩坑 使用 import * as path 引入
+import * as path from 'path'
 import { viteMockServe } from 'vite-plugin-mock'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Components from 'unplugin-vue-components/vite'
@@ -32,6 +33,7 @@ export default defineConfig({
     }
   },
   resolve: {
+    // TODO:别忘了在tsconfig.json中命名
     alias: {
       '@': path.join(__dirname, './src'),
       // prettier-ignore
@@ -55,6 +57,7 @@ export default defineConfig({
     force: true // 强制进行依赖预构建
   },
   server: {
+    hmr: true,
     host: true, // 在局域网内进行热更新,
     proxy: {
       '/api': {
@@ -67,8 +70,8 @@ export default defineConfig({
   // 配置静态资源基础路径
   base: process.env.NODE_ENV === 'development' ? '' : process.env.ASSETS_PATH,
   build: {
-    outDir: '/dist',
-    assetsDir: '/static',
+    outDir: './dist',
+    assetsDir: './static',
     assetsInlineLimit: 4096
   }
 })

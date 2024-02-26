@@ -8,7 +8,7 @@ export const router = createRouter({
 })
 
 // 全局路由守卫
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _, next) => {
   const token = getToken()
   if (token === null) {
     if (to.name === 'login') {

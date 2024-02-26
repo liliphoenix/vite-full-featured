@@ -21,7 +21,7 @@ const getNumberIPFun = async (): Promise<any> => {
 }
 const getWeatherFun = async (): Promise<any> => {
   const res = await getWeather({
-    areacode: 101010100
+    areacode: 110101
   })
   console.log(res.data)
 }
