@@ -36,3 +36,15 @@ export interface interceptorsObj {
 
 // 🌸 返回data的数据类型
 export type dataType = Promise<resType<any>>
+
+// 🌸 可扩展config
+export interface requestInterceptors extends InternalAxiosRequestConfig {
+  selfHeader?: selfHeader
+}
+// 🌸 自定义header
+export interface selfHeader {
+  'Content-Type'?:
+    | 'application/x-www-form-urlencoded'
+    | 'application/json'
+    | 'multipart/form-data'
+}

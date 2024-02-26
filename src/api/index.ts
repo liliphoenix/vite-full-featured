@@ -1,6 +1,5 @@
 import type { dataType } from '@/types/axios'
 import { Request } from './request'
-
 /* 
 
 * @params Baseurl 
@@ -26,11 +25,14 @@ const request = (config): any => {
 
 */
 
-export const getList = (params = {}): dataType => {
+export const getWeather = (params = {}): dataType => {
   return request({
-    url: '/mock/api/getList',
+    url: '/456456/weather/v001/now',
     method: 'get',
-    params
+    params,
+    selfHeader: {
+      'X-APISpace-Token	': 'yzhc6eziyefcvr8o1luh8wl1rifkka1u'
+    }
   })
 }
 
@@ -42,10 +44,14 @@ export const getList = (params = {}): dataType => {
 
 */
 
-export const getNumberIP = (query = {}): dataType => {
+export const getNumberIP = (data = {}): dataType => {
   return request({
     url: '/teladress/teladress',
     method: 'post',
-    query
+    data,
+    selfHeader: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'X-APISpace-Token	': 'yzhc6eziyefcvr8o1luh8wl1rifkka1u'
+    }
   })
 }

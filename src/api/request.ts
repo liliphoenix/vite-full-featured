@@ -30,9 +30,8 @@ export class Request {
     // 🌸 请求拦截器封装
     // ! 新版本中请求拦截器的类型已经是 InternalAxiosRequestConfig
     this.instance.interceptors.request.use(
-      (config: InternalAxiosRequestConfig) => {
-        console.log(config)
-
+      (config: AT.requestInterceptors) => {
+        const { selfHeader } = config
         // 🌸 0.检查用户的网络连接状态
         if (!navigator.onLine) {
           throw new Error('network did not connected')
@@ -43,7 +42,16 @@ export class Request {
           config.headers.Authorization = token
         }
         // 🌸 2.自定义请求头
-        config = setHeaders(config, 'myHeader', 'this is my header')
+        if (selfHeader) {
+          Object.keys(selfHeader).forEach((key) => {
+            if (key === 'Content-Type') {
+              config.headers['Content-Type'] = selfHeader[key]
+              return
+            }
+            config = setHeaders(config, key, selfHeader[key])
+          })
+        }
+
         return config
       },
       (error) => {

@@ -1,22 +1,27 @@
 <template>
   <div>
-    <Button type="primary" @click="getListFun">testAxios-Get</Button>
-    <MessageBox></MessageBox>
+    <Button type="primary" @click="getNumberIPFun">testAxios-Post</Button>
+    <Button type="primary" @click="getWeatherFun">testAxios-Get</Button>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { onMounted } from 'vue'
 import { Button } from 'ant-design-vue'
-import MessageBox from '@/components/Message/MessageBox.vue'
-import { useMessageFun } from 'com/Message/index'
-import { getNumberIP } from 'api/index'
+import { getNumberIP, getWeather } from 'api/index'
+import * as process from 'process'
 onMounted(() => {
-  useMessageFun()
+  console.log(process.env.VUE_CLIENT_TEST_HOST)
 })
-const getListFun = async (): Promise<any> => {
+const getNumberIPFun = async (): Promise<any> => {
   const res = await getNumberIP({
     mobile: 15588741204
+  })
+  console.log(res.data)
+}
+const getWeatherFun = async (): Promise<any> => {
+  const res = await getWeather({
+    areacode: 101010100
   })
   console.log(res.data)
 }

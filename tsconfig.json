@@ -28,8 +28,8 @@
       "router/*": ["src/router/*"],
       "view/*": ["src/view/*"],
       "api/*": ["src/api/*"]
-
-    }
+    },
+    "types": ["vite/client"]
   },
   "include": [
     "./*.ts",
