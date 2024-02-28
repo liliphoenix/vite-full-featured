@@ -6,6 +6,7 @@ import { viteMockServe } from 'vite-plugin-mock'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
+import requireTransform from 'vite-plugin-require-transform'
 const env = loadEnv('development', process.cwd())
 export default defineConfig({
   plugins: [
@@ -23,6 +24,9 @@ export default defineConfig({
           importStyle: false // css in js
         })
       ]
+    }),
+    requireTransform({
+      fileRegex: /.js$|.vue$|.ts$/
     })
   ],
   css: {
@@ -64,6 +68,11 @@ export default defineConfig({
         target: env.VITE_TEST_HOST,
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
+      },
+      '/upload': {
+        target: env.VITE_TEST_HOST_UPLOAD,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/upload/, '')
       }
     }
   },

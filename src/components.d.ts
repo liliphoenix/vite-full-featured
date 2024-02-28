@@ -12,6 +12,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {}
+  
 }
 // 🌸 ts支持vue后缀
 declare module '*.vue' {

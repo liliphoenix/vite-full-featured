@@ -62,7 +62,7 @@ export class Request {
     // 🌸 响应拦截器封装
     this.instance.interceptors.response.use(
       (config: AxiosResponse) => {
-        return config
+        return config.data
       },
       // 🌸 处理拦截器
       (error: AxiosError) => {
@@ -116,7 +116,7 @@ export class Request {
 
   // 🌸 request方法
   // eslint-disable
-  request(config: AxiosRequestConfig): Promise<AT.resType<any>> {
+  request(config: AxiosRequestConfig): Promise<any> {
     return this.instance.request(config)
   }
 }

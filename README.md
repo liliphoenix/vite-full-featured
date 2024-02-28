@@ -1,22 +1,26 @@
 # 💎 vite-full-featured 💎
-
-#### Vue 3 + TypeScript + Vite脚手架
-
+#### Vue 3 + TypeScript + Vite脚手架 
 > vue3 个人功能丰富的工作流框架 基于vite-vue3脚手架
 > 首次搭建自己的工作流，实现代码风格 提交规范的配置 🎉🎉🎉
 
-| 项目集成功能         | Value  |
-| -------------------- | ------ |
-| 代码书写以及提交规范 | eslint |
-| 手机                 | $12    |
-| 导管                 | $1     |
+
+
+项目集成功能 | Value
+-------- | -----
+代码书写以及提交规范 | eslint
+手机 | $12
+导管 | $1
+
+
+
+
 
 ##v1.0任务目标
-
 - [x] 代码规范和提交规范
-- [ ] axios的二次封装
-  - [ ] 拦截器
-  - [ ] get post请求
+- [ ] axios的二次封装 
+  - [x] 拦截器 
+  - [x] get post请求
+  - [ ] 
   - [ ] 文件分片上传
   - [ ] websocket通讯
 - [ ] 通用组件的封装（第一期基于antd进行封装，以后开发bobi-ui后再引入组件库）
@@ -34,11 +38,11 @@
 - [ ] 常用scss方法封装
 
 #### 项目运行
-
-`npm install`
-`npm run dev`
+```npm install```
+```npm run dev```
 
 #### 代码提交➕代码风格规范
+
 
 ### 老生常谈的解决 eslint和prettier的冲突问题 ✅
 
