@@ -1,5 +1,6 @@
 // 🌸 oss文件上传
 import { initOssApi } from 'api/index'
+import { downloadFile } from './index'
 const OSS = require('ali-oss')
 
 let client
@@ -135,3 +136,46 @@ export const resumeUploadFileOss = async (item): Promise<any> => {
 //     console.log(error)
 //   }
 // }
+/*
+ *    🌸 获取文件列表
+ *    @params item 文件对象
+ *    @params parallel 分片个数
+ *    @params partSize 分片大小
+ */
+export const getFileListOss = async (): Promise<any> => {
+  try {
+    const client = await initOss()
+    const result = await client.list()
+    console.log(result)
+
+    return result
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+/*
+ *    🌸 文件下载
+ *    @params item 文件对象
+ *    @params parallel 分片个数
+ *    @params partSize 分片大小
+ */
+export const getFileOss = async (filename): Promise<any> => {
+  try {
+    const client = await initOss()
+    const list = await getFileListOss()
+    console.log(list)
+
+    const response = {
+      'content-disposition': `attachment; filename=${encodeURIComponent(
+        filename
+      )}`
+    }
+
+    const result = await client.signatureUrl(filename, { response })
+    downloadFile(result, '1.jpg')
+    console.log(result)
+  } catch (e) {
+    console.log(e)
+  }
+}

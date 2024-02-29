@@ -17,3 +17,12 @@ export const getVueGlobalValue: () => globalProperties | null = () => {
     return null
   }
 }
+
+export const downloadFile = (url, filename): void => {
+  const element = document.createElement('a')
+  element.setAttribute('href', url)
+  element.setAttribute('download', filename)
+  element.style.display = 'none'
+  element.click()
+  console.log('下载成功')
+}

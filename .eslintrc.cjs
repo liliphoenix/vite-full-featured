@@ -40,6 +40,8 @@ module.exports = {
     '@typescript-eslint/promise-function-async': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
-    '@typescript-eslint/no-var-requires': 'off'
+    '@typescript-eslint/no-var-requires': 'off',
+    'vue/no-v-model-argument': 'off',
+    '@typescript-eslint/no-floating-promises': 'off'
   }
 }

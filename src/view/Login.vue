@@ -16,6 +16,15 @@
         Click to Upload (resume)
       </a-button>
     </a-upload>
+    <a-table :data-source="dataSource" :columns="columns" />
+    <a-input-search
+      v-model:value="filename"
+      placeholder="input search text"
+      enter-button="download"
+      size="large"
+      @search="downloadFile"
+    />
+
     <!-- <a-upload name="file" action="" :custom-request="streamUploadFile">
       <a-button>
         <upload-outlined></upload-outlined>
@@ -26,14 +35,34 @@
 </template>
 
 <script lang="ts" setup>
+import { ref, onMounted } from 'vue'
 import { UploadOutlined } from '@ant-design/icons-vue'
 import { Button } from 'ant-design-vue'
 import {
   uploadFileOss,
   MultipartUploadFileOss,
-  resumeUploadFileOss
+  resumeUploadFileOss,
+  getFileOss,
+  getFileListOss
 } from 'utils/ossUpload'
 import { getNumberIP, getWeather } from 'api/index'
+const dataSource = ref([])
+const filename = ref()
+const columns = ref([
+  {
+    title: '文件名',
+    dataIndex: 'name',
+    key: 'name'
+  },
+  {
+    title: 'url',
+    dataIndex: 'url',
+    key: 'url'
+  }
+])
+onMounted(() => {
+  getFileList()
+})
 const getNumberIPFun = async (): Promise<any> => {
   const res = await getNumberIP({
     mobile: 15588741204
@@ -48,12 +77,24 @@ const getWeatherFun = async (): Promise<any> => {
 }
 const uploadFileMultipart = async (item): Promise<any> => {
   await MultipartUploadFileOss(item, 3, 1024 * 1024)
+  await getFileList()
 }
 const uploadFile = async (e): Promise<any> => {
   await uploadFileOss(e)
+  await getFileList()
 }
 const uploadFileResume = async (item): Promise<any> => {
   await resumeUploadFileOss(item)
+  await getFileList()
+}
+const downloadFile = async (): Promise<any> => {
+  console.log(filename.value)
+
+  await getFileOss(filename.value)
+}
+const getFileList = async (): Promise<any> => {
+  const list = await getFileListOss()
+  dataSource.value = list.objects
 }
 // const streamUploadFile = async (item): Promise<any> => {
 //   await streamUploadFileOss(item)
