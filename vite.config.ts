@@ -30,11 +30,7 @@ export default defineConfig({
     })
   ],
   css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "./src/assets/main.scss";`
-      }
-    }
+    preprocessorOptions: {}
   },
   resolve: {
     // TODO:别忘了在tsconfig.json中命名
