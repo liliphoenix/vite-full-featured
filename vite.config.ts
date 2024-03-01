@@ -53,7 +53,9 @@ export default defineConfig({
       // prettier-ignore
       'view': path.resolve(__dirname, 'src/view'),
       // prettier-ignore
-      'api':path.resolve(__dirname, 'src/api')
+      'api':path.resolve(__dirname, 'src/api'),
+      // prettier-ignore
+      'store': path.resolve(__dirname, 'src/store')
     },
     extensions: ['.js', '.cjs', '.json', '.ts', '.vue']
   },

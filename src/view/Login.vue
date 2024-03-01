@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div class="store-display">
+      {{ store.count }}
+      {{ store.name }}
+    </div>
     <Button type="primary" @click="getNumberIPFun">testAxios-Post</Button>
     <Button type="primary" @click="getWeatherFun">testAxios-Get</Button>
     <!-- <a-upload name="file" action="" :custom-request="uploadFile"> -->
@@ -38,15 +42,15 @@
 import { ref, onMounted } from 'vue'
 import { UploadOutlined } from '@ant-design/icons-vue'
 import { Button } from 'ant-design-vue'
-import {
-  uploadFileOss,
-  MultipartUploadFileOss,
-  resumeUploadFileOss,
-  getFileOss,
-  getFileListOss
-} from 'utils/ossUpload'
 import { getNumberIP, getWeather } from 'api/index'
-const dataSource = ref([])
+import { useOssStore } from 'store/oss'
+const store = useOssStore()
+const dataSource = ref([
+  {
+    name: 'xx',
+    url: 'xxx'
+  }
+])
 const filename = ref()
 const columns = ref([
   {
@@ -60,42 +64,51 @@ const columns = ref([
     key: 'url'
   }
 ])
-onMounted(() => {
-  getFileList()
+onMounted(async () => {
+  await store.getFileListOss()
+  dataSource.value = store.list
 })
+// 🌸 post 测试
 const getNumberIPFun = async (): Promise<any> => {
   const res = await getNumberIP({
     mobile: 15588741204
   })
   console.log(res.data)
 }
+// 🌸 get测试
 const getWeatherFun = async (): Promise<any> => {
   const res = await getWeather({
     areacode: 110101
   })
   console.log(res.data)
 }
+// 🌸 分片上传
 const uploadFileMultipart = async (item): Promise<any> => {
-  await MultipartUploadFileOss(item, 3, 1024 * 1024)
+  await store.MultipartUploadFileOss(item, 3, 1024 * 1024)
   await getFileList()
 }
-const uploadFile = async (e): Promise<any> => {
-  await uploadFileOss(e)
-  await getFileList()
-}
-const uploadFileResume = async (item): Promise<any> => {
-  await resumeUploadFileOss(item)
-  await getFileList()
-}
-const downloadFile = async (): Promise<any> => {
-  console.log(filename.value)
+// 🌸 普通上传
 
-  await getFileOss(filename.value)
+const uploadFile = async (e): Promise<any> => {
+  await store.uploadFileOss(e)
+  await getFileList()
 }
+
+// 🌸 断点续传
+const uploadFileResume = async (item): Promise<any> => {
+  await store.resumeUploadFileOss(item)
+  await getFileList()
+}
+// 🌸 文件下载
+const downloadFile = async (): Promise<any> => {
+  await store.getFileOss(filename.value)
+}
+// 🌸 获取文件列表
 const getFileList = async (): Promise<any> => {
-  const list = await getFileListOss()
+  const list = await store.getFileListOss()
   dataSource.value = list.objects
 }
+
 // const streamUploadFile = async (item): Promise<any> => {
 //   await streamUploadFileOss(item)
 // }
