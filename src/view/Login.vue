@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="store-display">
+    <div>
       {{ store.count }}
       {{ store.name }}
     </div>
