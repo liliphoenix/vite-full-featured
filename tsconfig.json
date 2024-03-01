@@ -29,12 +29,12 @@
       "view/*": ["src/view/*"],
       "api/*": ["src/api/*"],
       "store/*": ["src/store/*"]
-
     },
     "types": ["vite/client"]
   },
   "include": [
     "./*.ts",
+    "./*.config.js",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",

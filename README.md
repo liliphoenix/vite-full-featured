@@ -17,8 +17,8 @@
 
 - [x] 代码规范和提交规范
 - [x] axios的二次封装
-  - [x] 拦截器
-  - [x] get post请求
+  - [x] 拦截器 
+  - [x] get post请求 
   - [x] ali-oss文件分片上传 文件下载 文件列表显示
 
 - [ ] 通用组件的封装（第一期基于antd进行封装，以后开发bobi-ui后再引入组件库）
@@ -77,3 +77,8 @@
 - [ ] 文件下载功能 
 - [ ] pinia 封装 
 - [ ] tailwind css 封装 - 学习css原子化
+#### 3.1计划
+- [ ] tailwind css 封装 - 学习css原子化
+- [ ] 优化pinia
+- [ ] 封装scss常用方法
+
