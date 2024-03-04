@@ -17,7 +17,11 @@ export const getVueGlobalValue: () => globalProperties | null = () => {
     return null
   }
 }
-
+/**
+ * 🌸 文件
+ * @params url 文件下载地址
+ * @params filename 文件名称
+ */
 export const downloadFile = (url, filename): void => {
   const element = document.createElement('a')
   element.setAttribute('href', url)

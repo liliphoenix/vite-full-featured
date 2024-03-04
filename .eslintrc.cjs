@@ -42,6 +42,7 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     'vue/no-v-model-argument': 'off',
-    '@typescript-eslint/no-floating-promises': 'off'
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off'
   }
 }

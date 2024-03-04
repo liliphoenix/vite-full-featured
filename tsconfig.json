@@ -39,6 +39,6 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "src/components.d.ts"
-  ],
+, "babel.config.cjs"  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

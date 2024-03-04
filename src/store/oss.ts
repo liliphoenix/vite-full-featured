@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore, acceptHMRUpdate } from 'pinia'
 import type { mainState } from 'types/store'
 import { initOssApi } from 'api/index'
 import { downloadFile } from 'utils/index'
@@ -182,3 +182,8 @@ export const useOssStore = defineStore('oss', {
     }
   }
 })
+
+// TODO: pinia 热更新
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useOssStore, import.meta.hot))
+}

@@ -8,8 +8,8 @@ module.exports = {
     'postcss-import': {},
     'tailwindcss/nesting': {},
     tailwindcss: {},
-    autoprefixer: {},
-    ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})
+    autoprefixer: {}
+    // ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})
   },
   corePlugins: {
     // Remove Tailwind CSS's preflight style so it can use the antd's preflight instead (reset.css).

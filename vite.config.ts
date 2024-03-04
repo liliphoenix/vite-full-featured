@@ -6,11 +6,14 @@ import { viteMockServe } from 'vite-plugin-mock'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
-import requireTransform from 'vite-plugin-require-transform'
+import babel from 'vite-plugin-babel'
+import vitePluginRequire from 'vite-plugin-require'
+
 const env = loadEnv('development', process.cwd())
 export default defineConfig({
   plugins: [
     // ...
+    babel(),
     vue(),
     viteMockServe({
       mockPath: path.resolve(__dirname, 'src/mock'),
@@ -25,9 +28,8 @@ export default defineConfig({
         })
       ]
     }),
-    requireTransform({
-      fileRegex: /.js$|.vue$|.ts$/
-    })
+    // @ts-expect-error
+    vitePluginRequire.default()
   ],
   css: {
     preprocessorOptions: {}
@@ -79,6 +81,14 @@ export default defineConfig({
   build: {
     outDir: './dist',
     assetsDir: './static',
-    assetsInlineLimit: 4096
+    rollupOptions: {
+      treeshake: false,
+
+      output: {
+        manualChunks: {
+          'ant-design-vue': ['ant-design-vue']
+        }
+      }
+    }
   }
 })
