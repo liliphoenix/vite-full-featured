@@ -88,5 +88,5 @@
 #### 3.4计划
 
 - [ ] 打包优化 了解vite打包流程和原理
-- [ ] ali-oss打包报错 原因:vite-require 决定迁移到后端
+- [x] ali-oss打包报错 原因:vite-require 决定迁移到后端 解决：踩坑 vite-plugin-require-transform包在vite4.0 报错 vite-plugin-require 解决问题
 - [ ] 发布npm包 尝试实现热插拔

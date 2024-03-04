@@ -8,6 +8,7 @@ import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import babel from 'vite-plugin-babel'
 import vitePluginRequire from 'vite-plugin-require'
+import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 
 const env = loadEnv('development', process.cwd())
 export default defineConfig({
@@ -29,7 +30,21 @@ export default defineConfig({
       ]
     }),
     // @ts-expect-error
-    vitePluginRequire.default()
+    vitePluginRequire.default(),
+    chunkSplitPlugin({
+      strategy: 'default',
+      customSplitting: {
+        // `react` and `react-dom` 会被打包到一个名为`render-vendor`的 chunk 里面(包括它们的一些依赖，如 object-assign)
+        'vue-vendor': [
+          /node_modules\/vue/,
+          /node_modules\/vue-router/,
+          /node_modules\/pinia/
+        ],
+        lodash: [/node_modules\/lodash*/],
+        'ali-oss': [/node_modules\/ali-oss/]
+        // 源码中 utils 目录的代码都会打包进 `utils` 这个 chunk 中
+      }
+    })
   ],
   css: {
     preprocessorOptions: {}
@@ -81,14 +96,6 @@ export default defineConfig({
   build: {
     outDir: './dist',
     assetsDir: './static',
-    rollupOptions: {
-      treeshake: false,
-
-      output: {
-        manualChunks: {
-          'ant-design-vue': ['ant-design-vue']
-        }
-      }
-    }
+    rollupOptions: {}
   }
 })
