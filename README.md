@@ -29,6 +29,11 @@
   - [ ] [可选] 获取设备的基本信息？
   - [ ] 获取用户语言设置多语言
 - [ ] 打包优化（有待学习vite）vite插件集成
+  - [x] 分包策略 vue全家桶放一块 ali-oss-sdk单分chunk因为体积太大 剩下的
+  - [x] treeShaking es6自带 去除掉没有用到的api
+  - [x] gzip
+  - [ ] cdn加速
+  - [ ] 图片压缩
 - [ ] sh命令行操作
 - [ ] vue-router
   - [ ] 权限控制？
@@ -90,3 +95,10 @@
 - [ ] 打包优化 了解vite打包流程和原理
 - [x] ali-oss打包报错 原因:vite-require 决定迁移到后端 解决：踩坑 vite-plugin-require-transform包在vite4.0 报错 vite-plugin-require 解决问题
 - [ ] 发布npm包 尝试实现热插拔
+
+#### 3.5计划
+- [ ] 完成昨日计划
+- [ ] 深入了解vite打包优化 
+- [ ] github actions
+  
+#### 3.6继续昨天计划

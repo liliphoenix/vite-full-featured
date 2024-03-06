@@ -9,6 +9,13 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import babel from 'vite-plugin-babel'
 import vitePluginRequire from 'vite-plugin-require'
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
+// import importToCDN from "vite-plugin-cdn-import";
+import { Plugin as importToCDN } from 'vite-plugin-cdn-import'
+
+const externalGlobalsObj = {
+  vue: 'Vue',
+  'vue-router': 'VueRouter'
+}
 
 const env = loadEnv('development', process.cwd())
 export default defineConfig({
@@ -16,6 +23,15 @@ export default defineConfig({
     // ...
     babel(),
     vue(),
+    importToCDN({
+      modules: [
+        {
+          name: 'vue',
+          var: 'Vue', // path: '//cdn.jsdelivr.net/npm/vue@3.2.39/dist/vue.global.prod.js',
+          path: '//npm.elemecdn.com/vue@3.4.21/dist/vue.global.prod.js'
+        }
+      ]
+    }),
     viteMockServe({
       mockPath: path.resolve(__dirname, 'src/mock'),
       watchFiles: true,
@@ -29,9 +45,11 @@ export default defineConfig({
         })
       ]
     }),
+    //TODO: 踩坑：require使用vite-plugin-require插件适配
     // @ts-expect-error
     vitePluginRequire.default(),
     chunkSplitPlugin({
+      //TODO: 踩坑：包分离优化使用正则 ，用数组会报错
       strategy: 'default',
       customSplitting: {
         // `react` and `react-dom` 会被打包到一个名为`render-vendor`的 chunk 里面(包括它们的一些依赖，如 object-assign)
@@ -50,7 +68,7 @@ export default defineConfig({
     preprocessorOptions: {}
   },
   resolve: {
-    // TODO:别忘了在tsconfig.json中命名
+    // TODO:踩坑：忘了在tsconfig.json中命名
     alias: {
       '@': path.join(__dirname, './src'),
       // prettier-ignore
@@ -96,6 +114,8 @@ export default defineConfig({
   build: {
     outDir: './dist',
     assetsDir: './static',
-    rollupOptions: {}
+    rollupOptions: {
+      external: Object.keys(externalGlobalsObj)
+    }
   }
 })
