@@ -28,12 +28,12 @@
       size="large"
       @search="downloadFile"
     />
+
+    <SvgCom name="logo-a"></SvgCom>
     <img src="assets/images/pit1.png" alt="" />
     <img src="assets/images/pit1copy.png" alt="" />
     <img src="assets/images/jpg1.jpeg" alt="" />
     <img src="assets/images/jpg2.jpg" alt="" />
-
-    <ViteSvg></ViteSvg>
     <!-- <a-upload name="file" action="" :custom-request="streamUploadFile">
       <a-button>
         <upload-outlined></upload-outlined>
@@ -49,7 +49,6 @@ import { UploadOutlined } from '@ant-design/icons-vue'
 import { Button } from 'ant-design-vue'
 import { getNumberIP, getWeather } from 'api/index'
 import { useOssStore } from 'store/oss'
-import ViteSvg from 'assets/images/vite.svg'
 const store = useOssStore()
 const dataSource = ref([
   {
@@ -73,7 +72,6 @@ const columns = ref([
 onMounted(async () => {
   await store.getFileListOss()
   dataSource.value = store.list
-  console.log(import.meta.env.VITE_ENV)
 })
 // 🌸 post 测试
 const getNumberIPFun = async (): Promise<any> => {

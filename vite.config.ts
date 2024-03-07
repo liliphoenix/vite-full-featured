@@ -12,6 +12,8 @@ import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 import svgLoader from 'vite-svg-loader'
 // 🌸 vite压缩图片资源
 import viteImagemin from 'vite-plugin-imagemin'
+// 🌸 icon生成雪碧图压缩
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 // const externalGlobalsObj = {
 //   vue: 'Vue',
 //   'vue-router': 'router'
@@ -26,6 +28,10 @@ export default defineConfig({
   plugins: [
     vue(),
     svgLoader(),
+    // TODO: svg变成雪碧图
+    createSvgIconsPlugin({
+      iconDirs: [path.join(__dirname, 'src/assets/svgs')]
+    }),
     viteMockServe({
       mockPath: path.resolve(__dirname, 'src/mock'),
       watchFiles: true,
