@@ -10,12 +10,18 @@ import vitePluginRequire from 'vite-plugin-require'
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 // import importToCDN from "vite-plugin-cdn-import";
 import svgLoader from 'vite-svg-loader'
+// 🌸 vite压缩图片资源
+import viteImagemin from 'vite-plugin-imagemin'
 // const externalGlobalsObj = {
 //   vue: 'Vue',
 //   'vue-router': 'router'
 // }
 
-const env = loadEnv('development', process.cwd())
+const env =
+  loadEnv('development', process.cwd()).VITE_ENV === 'development'
+    ? loadEnv('development', process.cwd())
+    : loadEnv('production', process.cwd())
+
 export default defineConfig({
   plugins: [
     vue(),
@@ -50,6 +56,29 @@ export default defineConfig({
         'ali-oss': [/node_modules\/ali-oss/]
         // 源码中 utils 目录的代码都会打包进 `utils` 这个 chunk 中
       }
+    }),
+    // TODO: 图片资源压缩
+    viteImagemin({
+      optipng: {
+        optimizationLevel: 7
+      },
+      pngquant: {
+        quality: [0.8, 0.9]
+      },
+      mozjpeg: {
+        quality: 50
+      },
+      svgo: {
+        plugins: [
+          {
+            name: 'removeViewBox'
+          },
+          {
+            name: 'removeEmptyAttrs',
+            active: false
+          }
+        ]
+      }
     })
   ],
   css: {
@@ -83,6 +112,7 @@ export default defineConfig({
   },
   server: {
     hmr: true,
+    open: true,
     host: true, // 在局域网内进行热更新,
     proxy: {
       '/api': {
@@ -98,10 +128,12 @@ export default defineConfig({
     }
   },
   // 配置静态资源基础路径
-  base: process.env.NODE_ENV === 'development' ? '' : process.env.ASSETS_PATH,
+  base: env.NODE_ENV === 'development' ? '' : env.ASSETS_PATH,
   build: {
     outDir: './dist',
     assetsDir: './static',
+    // 单文件or內联临界值
+    assetsInlineLimit: 8 * 1024,
     rollupOptions: {
       // external: Object.keys(externalGlobalsObj)
     }

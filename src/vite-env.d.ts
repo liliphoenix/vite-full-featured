@@ -3,7 +3,8 @@
 
 interface ImportMetaEnv {
   readonly VITE_APP_TITLE: string
-  // 更多环境变量...
+  // 自定义的环境变量
+  readonly VITE_IMG_BASE_URL: string
 }
 
 interface ImportMeta {

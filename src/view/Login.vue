@@ -29,6 +29,10 @@
       @search="downloadFile"
     />
     <img src="assets/images/pit1.png" alt="" />
+    <img src="assets/images/pit1copy.png" alt="" />
+    <img src="assets/images/jpg1.jpeg" alt="" />
+    <img src="assets/images/jpg2.jpg" alt="" />
+
     <ViteSvg></ViteSvg>
     <!-- <a-upload name="file" action="" :custom-request="streamUploadFile">
       <a-button>
@@ -69,6 +73,7 @@ const columns = ref([
 onMounted(async () => {
   await store.getFileListOss()
   dataSource.value = store.list
+  console.log(import.meta.env.VITE_ENV)
 })
 // 🌸 post 测试
 const getNumberIPFun = async (): Promise<any> => {
