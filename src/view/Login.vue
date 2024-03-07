@@ -28,7 +28,8 @@
       size="large"
       @search="downloadFile"
     />
-
+    <img src="assets/images/pit1.png" alt="" />
+    <ViteSvg></ViteSvg>
     <!-- <a-upload name="file" action="" :custom-request="streamUploadFile">
       <a-button>
         <upload-outlined></upload-outlined>
@@ -44,6 +45,7 @@ import { UploadOutlined } from '@ant-design/icons-vue'
 import { Button } from 'ant-design-vue'
 import { getNumberIP, getWeather } from 'api/index'
 import { useOssStore } from 'store/oss'
+import ViteSvg from 'assets/images/vite.svg'
 const store = useOssStore()
 const dataSource = ref([
   {

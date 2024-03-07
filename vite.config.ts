@@ -6,32 +6,20 @@ import { viteMockServe } from 'vite-plugin-mock'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
-import babel from 'vite-plugin-babel'
 import vitePluginRequire from 'vite-plugin-require'
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 // import importToCDN from "vite-plugin-cdn-import";
-import { Plugin as importToCDN } from 'vite-plugin-cdn-import'
-
-const externalGlobalsObj = {
-  vue: 'Vue',
-  'vue-router': 'VueRouter'
-}
+import svgLoader from 'vite-svg-loader'
+// const externalGlobalsObj = {
+//   vue: 'Vue',
+//   'vue-router': 'router'
+// }
 
 const env = loadEnv('development', process.cwd())
 export default defineConfig({
   plugins: [
-    // ...
-    babel(),
     vue(),
-    importToCDN({
-      modules: [
-        {
-          name: 'vue',
-          var: 'Vue', // path: '//cdn.jsdelivr.net/npm/vue@3.2.39/dist/vue.global.prod.js',
-          path: '//npm.elemecdn.com/vue@3.4.21/dist/vue.global.prod.js'
-        }
-      ]
-    }),
+    svgLoader(),
     viteMockServe({
       mockPath: path.resolve(__dirname, 'src/mock'),
       watchFiles: true,
@@ -45,11 +33,11 @@ export default defineConfig({
         })
       ]
     }),
-    //TODO: 踩坑：require使用vite-plugin-require插件适配
+    // TODO: 踩坑：require使用vite-plugin-require插件适配
     // @ts-expect-error
     vitePluginRequire.default(),
     chunkSplitPlugin({
-      //TODO: 踩坑：包分离优化使用正则 ，用数组会报错
+      // TODO: 踩坑：包分离优化使用正则 ，用数组会报错
       strategy: 'default',
       customSplitting: {
         // `react` and `react-dom` 会被打包到一个名为`render-vendor`的 chunk 里面(包括它们的一些依赖，如 object-assign)
@@ -115,7 +103,7 @@ export default defineConfig({
     outDir: './dist',
     assetsDir: './static',
     rollupOptions: {
-      external: Object.keys(externalGlobalsObj)
+      // external: Object.keys(externalGlobalsObj)
     }
   }
 })
