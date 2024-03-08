@@ -28,7 +28,8 @@
       "router/*": ["src/router/*"],
       "view/*": ["src/view/*"],
       "api/*": ["src/api/*"],
-      "store/*": ["src/store/*"]
+      "store/*": ["src/store/*"],
+      "i18n/*": ["src/i18n/*"]
     },
     "types": ["vite/client"]
   },

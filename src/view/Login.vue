@@ -1,8 +1,7 @@
 <template>
   <div>
     <div>
-      {{ store.count }}
-      {{ store.name }}
+      <h1>{{ $t('hello') }}</h1>
     </div>
     <Button type="primary" @click="getNumberIPFun">testAxios-Post</Button>
     <Button type="primary" @click="getWeatherFun">testAxios-Get</Button>
