@@ -11,13 +11,16 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
-    "commit": "git add . && cz-customizable"
+    "commit": "git add . && cz-customizable",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "ant-design-vue": "^4.0.0-rc.6",
     "axios": "^1.6.5",
     "classnames": "^2.5.1",
+    "cz-customizable": "^7.0.0",
     "mockjs": "^1.1.0",
+    "patch-package": "^8.0.0",
     "pinia": "^2.1.7",
     "vite-plugin-require": "^1.1.14",
     "vue": "^3.4.21",
@@ -41,7 +44,6 @@
     "commitlint-config-git-commit-emoji": "^1.0.0",
     "commitlint-config-gitmoji": "^2.3.1",
     "cssnano": "^6.1.0",
-    "cz-customizable": "^7.0.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard-with-typescript": "^43.0.0",
