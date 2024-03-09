@@ -11,7 +11,6 @@ import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 // import importToCDN from "vite-plugin-cdn-import";
 import svgLoader from 'vite-svg-loader'
 // 🌸 vite压缩图片资源
-import viteImagemin from 'vite-plugin-imagemin'
 // 🌸 icon生成雪碧图压缩
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 // const externalGlobalsObj = {
@@ -62,30 +61,8 @@ export default defineConfig({
         'ali-oss': [/node_modules\/ali-oss/]
         // 源码中 utils 目录的代码都会打包进 `utils` 这个 chunk 中
       }
-    }),
-    // TODO: 图片资源压缩
-    viteImagemin({
-      optipng: {
-        optimizationLevel: 7
-      },
-      pngquant: {
-        quality: [0.8, 0.9]
-      },
-      mozjpeg: {
-        quality: 50
-      },
-      svgo: {
-        plugins: [
-          {
-            name: 'removeViewBox'
-          },
-          {
-            name: 'removeEmptyAttrs',
-            active: false
-          }
-        ]
-      }
     })
+    // TODO: 图片资源压缩
   ],
   css: {
     preprocessorOptions: {}
