@@ -104,7 +104,6 @@
 
 #### 3.6继续昨天计划
 
-#### 踩坑
-
-husky/\_/husky.sh: No such file or directory
-解决：从新npx husky install
+#### 踩坑 
+husky/_/husky.sh: No such file or directory
+解决：从新`npx husky install`

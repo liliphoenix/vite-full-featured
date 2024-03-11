@@ -43,6 +43,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'vue/no-v-model-argument': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
-    '@typescript-eslint/ban-ts-comment': 'off'
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/prefer-optional-chain': 'off'
   }
 }
