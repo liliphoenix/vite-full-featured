@@ -12,7 +12,10 @@
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
     "commit": "git add . && cz-customizable",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "docs:dev": "vitepress dev vite-press",
+    "docs:build": "vitepress build vite-press",
+    "docs:preview": "vitepress preview vite-press"
   },
   "dependencies": {
     "ant-design-vue": "^4.0.0-rc.6",
@@ -70,6 +73,7 @@
     "vite-plugin-mock": "^3.0.1",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-svg-loader": "^5.1.0",
+    "vitepress": "^1.0.0-rc.45",
     "vue-eslint-parser": "^9.4.0",
     "vue-tsc": "^1.8.25"
   },
