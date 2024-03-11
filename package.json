@@ -13,9 +13,9 @@
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
     "commit": "git add . && cz-customizable",
     "postinstall": "patch-package",
-    "docs:dev": "vitepress dev vite-press",
-    "docs:build": "vitepress build vite-press",
-    "docs:preview": "vitepress preview vite-press"
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
     "ant-design-vue": "^4.0.0-rc.6",
