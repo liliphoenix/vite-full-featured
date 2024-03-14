@@ -14,6 +14,13 @@
 ## v1.0任务目标
 
 ### 项目重心
+业务功能齐全的工作流，
+需要具备的功能：
+1.通过命令行进行安装,实现某些插件的可插拔
+2.业务功能齐全化、代码检测提交规范化
+3.打包性能优化
+4.通用自动化部署配置
+
 
 - [x] 代码规范和提交规范
 - [x] axios的二次封装
@@ -104,6 +111,7 @@
 
 #### 3.6继续昨天计划
 
-#### 踩坑 
-husky/_/husky.sh: No such file or directory
+#### 踩坑
+
+husky/\_/husky.sh: No such file or directory
 解决：从新`npx husky install`
