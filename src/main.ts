@@ -7,6 +7,7 @@ import { router } from '@/router'
 import Svg from 'com/Svg/index.vue'
 import 'virtual:svg-icons-register'
 import i18n from 'i18n/index'
+import 'core-js'
 // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 const app = createApp(App)
 const pinia = createPinia()
