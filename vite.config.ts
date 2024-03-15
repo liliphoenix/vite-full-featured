@@ -52,12 +52,14 @@ export default defineConfig({
       strategy: 'default',
       customSplitting: {
         // `react` and `react-dom` 会被打包到一个名为`render-vendor`的 chunk 里面(包括它们的一些依赖，如 object-assign)
-        'vue-vendor': [
-          /node_modules\/vue/,
+        'vue-vendor': [/node_modules\/vue/],
+        'vue-third-party': [
           /node_modules\/vue-router/,
-          /node_modules\/pinia/
+          /node_modules\/lodash*/,
+          /node_modules\/axios/
         ],
-        lodash: [/node_modules\/lodash*/],
+        pinia: [/node_modules\/pinia/],
+        antd: [/node_modules\/ant-design-vue/],
         'ali-oss': [/node_modules\/ali-oss/]
         // 源码中 utils 目录的代码都会打包进 `utils` 这个 chunk 中
       }
