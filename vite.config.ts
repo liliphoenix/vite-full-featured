@@ -8,16 +8,12 @@ import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import vitePluginRequire from 'vite-plugin-require'
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
-// import importToCDN from "vite-plugin-cdn-import";
 import svgLoader from 'vite-svg-loader'
+import { visualizer } from 'rollup-plugin-visualizer'
 // 🌸 vite压缩图片资源
 // 🌸 icon生成雪碧图压缩
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import legacy from '@vitejs/plugin-legacy'
-// const externalGlobalsObj = {
-//   vue: 'Vue',
-//   'vue-router': 'router'
-// }
 
 const env =
   loadEnv('development', process.cwd()).VITE_ENV === 'development'
@@ -27,6 +23,11 @@ const env =
 export default defineConfig({
   plugins: [
     vue(),
+    // TODO: 预览dist产物
+    visualizer({
+      // 打包完成后自动打开浏览器，显示产物体积报告
+      open: true
+    }),
     svgLoader(),
     // TODO: svg变成雪碧图
     createSvgIconsPlugin({
@@ -123,10 +124,10 @@ export default defineConfig({
   build: {
     outDir: './dist',
     assetsDir: './static',
-    // 单文件or內联临界值
-    assetsInlineLimit: 8 * 1024,
-    rollupOptions: {
-      // external: Object.keys(externalGlobalsObj)
-    }
+    // 单文件or內联临界值\
+    minify: 'esbuild',
+    // TODO:因为部分浏览器不支持esm，所以es6是最合适的target
+    target: 'es6',
+    assetsInlineLimit: 8 * 1024
   }
 })
